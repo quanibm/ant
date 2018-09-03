@@ -1,15 +1,18 @@
 import React from "react";
 import { render } from "react-dom";
-import './common/css/style.css';
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h6>first app</h6>
-      </div>
-    );
-  }
-}
+import { Provider } from "react-redux";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
+import './common/css/index.scss'
+import App from "./components/entrance";
+
+const NewApp = () => <div>111</div>;
+
+render(<App />, document.getElementById("root"));
 
 
-render(<App />, document.getElementById('root'))

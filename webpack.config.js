@@ -21,20 +21,24 @@ const copy_w_p = new CopyWebpackPlugin([
 const html_w_p = new HtmlWebpackPlugin({ template: "./src/index.html" });
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/index.js"],
+  entry: [
+    "webpack-dev-server/client?http://0.0.0.0:3888",
+    "babel-polyfill",
+    "./src/index.js"
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: './',
-    host: 'localhost',
+    contentBase: "./",
+    host: "localhost",
     compress: true,
     port: 3888
   },
   resolve: {
-    //modulesDirectories: ["node_modules", "./src"], // import时到哪些地方去寻找模块
-    //extensions: ["", ".js", ".jsx"], // require的时候可以直接使用require('file')，不用require('file.js')
+    // modulesDirectories: ["node_modules", "./src"], // import时到哪些地方去寻找模块
+    extensions: [".js", ".jsx"], // require的时候可以直接使用require('file')，不用require('file.js')
     alias: {} //别名
   },
 
@@ -56,6 +60,7 @@ module.exports = {
           publicPath: "/dist"
         })
       },
+
       {
         test: /\.scss$/,
         use: [
