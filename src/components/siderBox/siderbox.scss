@@ -1,0 +1,12 @@
+.slide-logo {
+	text-align: center;
+	&>span {
+		line-height: 32px;
+		color: white;
+	}
+}
+
+.ant-table-tbody>tr>td, .ant-table-thead>tr>th {
+	padding: 4px !important;
+	font-size: 13px !important;
+}
