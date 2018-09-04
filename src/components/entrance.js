@@ -20,10 +20,31 @@ export default class extends Component {
       captcha: ""
     };
   }
-  handleLogin(name, pwd) { }
-  loginOut() { }
-  updateCaptcha() { }
-  componentDidMount() { }
+  handleLogin(name, pwd) {
+    console.log(name, pwd);
+    this.setState({ msg: "登录中 ... " });
+    const data = {
+      header: {
+        methods: "default_index"
+      },
+      data: {
+        username: name,
+        pwd: pwd
+      }
+    };
+    console.log(data)
+    NetWork.Interface.POST(data, (err, res) => {
+      console.log(err)
+      console.log(res)
+
+      if (!err) {
+        console.log(res)
+      }
+    });
+  }
+  loginOut() {}
+  updateCaptcha() {}
+  componentDidMount() {}
 
   render() {
     const { msg, userInfo, romateMenus, captcha } = this.state;
